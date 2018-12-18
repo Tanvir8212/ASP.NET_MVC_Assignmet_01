@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,10 +73,101 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controller\HomeController.aspx" />
+    <Content Include="Controller\LogController.aspx" />
+    <Content Include="Controller\RegController.aspx" />
+    <Content Include="Controller\UserController.aspx" />
+    <Content Include="View\ChangePassword.aspx" />
+    <Content Include="View\Home.aspx" />
+    <Content Include="View\Login.aspx" />
+    <Content Include="View\Registration.aspx" />
+    <Content Include="View\UserHome.aspx" />
+    <Content Include="View\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\HomeController.aspx.cs">
+      <DependentUpon>HomeController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controller\HomeController.aspx.designer.cs">
+      <DependentUpon>HomeController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\LogController.aspx.cs">
+      <DependentUpon>LogController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controller\LogController.aspx.designer.cs">
+      <DependentUpon>LogController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\RegController.aspx.cs">
+      <DependentUpon>RegController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controller\RegController.aspx.designer.cs">
+      <DependentUpon>RegController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UserController.aspx.cs">
+      <DependentUpon>UserController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controller\UserController.aspx.designer.cs">
+      <DependentUpon>UserController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812161130428_UserAddedToDB.cs" />
+    <Compile Include="Migrations\201812161130428_UserAddedToDB.Designer.cs">
+      <DependentUpon>201812161130428_UserAddedToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812161149176_insertUserManually.cs" />
+    <Compile Include="Migrations\201812161149176_insertUserManually.Designer.cs">
+      <DependentUpon>201812161149176_insertUserManually.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\MyDatabaseContext.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserHome.aspx.cs">
+      <DependentUpon>UserHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserHome.aspx.designer.cs">
+      <DependentUpon>UserHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,6 +177,17 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812161130428_UserAddedToDB.resx">
+      <DependentUpon>201812161130428_UserAddedToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812161149176_insertUserManually.resx">
+      <DependentUpon>201812161149176_insertUserManually.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
